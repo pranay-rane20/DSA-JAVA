@@ -154,6 +154,9 @@ public class TreeFromArray {
     }
 
 
+
+
+//    ----------------------------------TopView--------------------------------
     static class In{
         Node node;
         int hd;
@@ -201,6 +204,17 @@ public class TreeFromArray {
 
         }
 
+    }
+
+
+    public static void klevel(Node root,int level,int k){
+        if (root == null) return;
+        if(level == k){
+            System.out.println(root.val + " ");
+            return;
+        }
+        klevel(root.left, level+1, k);
+        klevel(root.right, level+1, k);
     }
 
 
