@@ -262,6 +262,41 @@ public class TreeFromArray {
     }
 
 
+    //---------------------Mini s b/w 2 nodes------------------------
+    public static int lcsDist(Node root,int n){
+        if(root == null) return -1;
+        if(root.val == n) return 0;
+
+        int leftDist = lcsDist(root.left, n);
+        int rightDist = lcsDist(root.right,n);
+        if(leftDist == -1 && rightDist == -1) return -1;
+        else if(leftDist==-1)return rightDist+1;
+        else return leftDist+1;
+    }
+    public static int minDist(Node root, int n1,int n2){
+        Node lca = LCA2(root,n1,n2);
+        int dist1 = lcsDist(lca,n1);
+        int dist2 = lcsDist(lca,n2);
+        return dist1 + dist2;
+    }
+
+
+
+
+
+    //---------------------Kth Ancestor------------------------
+    public static int kAncestor(Node root, int n, int k){
+        if(root.val == n) return 0;
+        int left = kAncestor(root.left, n, k);
+        int right = kAncestor(root.right, n, k);
+
+        if(left==-1 && right==-1) return -1;
+        int max = Math.max(left,right);
+        if(max +1== k) System.out.println(root.val);
+        return max+1;
+    }
+
+
 
 
     //-------------------------------Main-------------------------------
