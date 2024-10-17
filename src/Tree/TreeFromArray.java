@@ -1,5 +1,6 @@
 package Tree;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -207,6 +208,7 @@ public class TreeFromArray {
     }
 
 
+//    ----------------------------------Klevels--------------------------------
     public static void klevel(Node root,int level,int k){
         if (root == null) return;
         if(level == k){
@@ -216,6 +218,50 @@ public class TreeFromArray {
         klevel(root.left, level+1, k);
         klevel(root.right, level+1, k);
     }
+
+
+//    -----------------------------Lowest Common Ancestor O(n)+Extra Space ------------------------------
+  public static boolean getPath(Node root, int n, ArrayList<Node> path){
+        if(root == null) return true;
+        path.add(root);
+        if(root.val == n) return true;
+        boolean left = getPath(root.left,n,path);
+        boolean right = getPath(root.right,n,path);
+        if(left || right) return true;
+        path.remove(path.size()-1);
+        return false;
+  }
+    public static Node LCA(Node root, int n1, int n2){
+        ArrayList<Node> path1 = new ArrayList<>();
+        ArrayList<Node> path2 = new ArrayList<>();
+
+        getPath(root,n1,path1);
+        getPath(root,n2,path2);
+
+        int i=0;
+        for( ;i<path1.size() && i<path2.size();i++){
+            if(path1.get(i) != path2.get(i))break;
+        }
+        return new Node(path1.get(i-1).val);
+    }
+
+
+    //    -----------------------------Lowest Common Ancestor O(n) ------------------------------
+    public static Node LCA2(Node root,int n1,int n2){
+        if(root == null) return null;
+        if(root.val == n1 || root.val == n2){
+            return root;
+        }
+        Node left = LCA2(root.left, n1, n2);
+        Node right = LCA2(root.right, n1, n2);
+
+        //leftLCA= val rightLCA = null
+        if(left == null) return right;
+        if(right == null) return left;
+        return root;
+    }
+
+
 
 
     //-------------------------------Main-------------------------------
