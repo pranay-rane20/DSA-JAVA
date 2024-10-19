@@ -284,7 +284,7 @@ public static boolean getPath(Node root, int n, ArrayList<Node> path) {
 
         // If the current node is either n1 or n2, return the current node
         if (root.val == n1 || root.val == n2) {
-            return root;
+            return  root;
         }
 
         // Recursively find LCA in the left and right subtrees
@@ -388,6 +388,7 @@ public static boolean getPath(Node root, int n, ArrayList<Node> path) {
         // Update the current node's value
         root.val = leftVal + left + right + rightVal;
 
+        // Return the updated value of the current node
         return data;  // Return the original value of the current node
     }
 
