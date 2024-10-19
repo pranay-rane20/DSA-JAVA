@@ -30,7 +30,7 @@ public class BST {
     }
 
 
-    //-----------------------Search-------------------------
+    //-----------------------Search---------------------------------------------------------------------------------
     public static boolean search(Node root, int val){
         if(root==null)return false;
         if(root.val == val) return true;
@@ -65,6 +65,39 @@ public class BST {
         }
         return root;
     }
+
+
+
+
+    //------------------PrintINRanges--------------------------------
+    public static void printInRange(Node root, int k1, int k2) {
+        if (root == null) {
+            return;
+        }
+
+        // If root's data is within the range, process the left subtree, print current node, and process the right subtree.
+        if (root.val >= k1 && root.val <= k2) {
+            printInRange(root.left, k1, k2);   // Left subtree
+            System.out.print(root.val + " "); // Print current node
+            printInRange(root.right, k1, k2);  // Right subtree
+        }
+        // If root's data is less than k1, go right as left subtree nodes will be less than k1
+        else if (root.val < k1) {
+            printInRange(root.right, k1, k2); // Only check right subtree
+        }
+        // If root's data is greater than k2, go left as right subtree nodes will be greater than k2
+        else {
+            printInRange(root.left, k1, k2);  // Only check left subtree
+        }
+    }
+
+
+
+
+
+
+
+
 
     public static void main(String[] args) {
         int val[] = {8,5,3,1,4,6,10,11,14};
