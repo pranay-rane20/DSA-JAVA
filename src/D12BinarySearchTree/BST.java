@@ -110,7 +110,6 @@ public class BST {
         if (root.left == null && root.right == null) {
             printpath(path);
         }
-
         // Recursively call for the left child
         printRoot2leaf(root.left, path);
 
@@ -131,6 +130,23 @@ public class BST {
         }
         // Print a new line after each path to separate paths
         System.out.println();
+    }
+
+
+
+
+
+
+
+
+    //---------------------------------ValidateBST----------------------------------
+    public static boolean validateBST(Node root,Node min,Node max){
+        if(root==null) return true;
+
+        if(min !=null && root.val <=min.val) return false;
+        else if(max !=null && root.val >= max.val) return false;
+
+        return validateBST(root.left,min,root) && validateBST(root.right,root,max);
     }
 
 
