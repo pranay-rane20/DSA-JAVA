@@ -153,6 +153,29 @@ public class BST {
 
 
 
+
+
+
+
+
+    public static Node createMirror(Node root){
+        if(root==null) return null;
+
+        Node leftmirror = createMirror(root.left);
+        Node rightmirror = createMirror(root.right);
+
+        root.left = rightmirror;
+        root.right = leftmirror;
+
+        return root;
+    }
+
+
+
+
+
+
+
     public static void main(String[] args) {
         int val[] = {8,5,3,1,4,6,10,11,14};
         Node root = null;
