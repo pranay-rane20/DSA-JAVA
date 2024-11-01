@@ -1,5 +1,7 @@
 package D12BinarySearchTree;
 
+import java.util.ArrayList;
+
 public class BST {
     static class Node{
         int val;
@@ -95,6 +97,41 @@ public class BST {
 
 
 
+
+//-------------------------------------printRoot2leaf-------------------------------------------------------------------
+    public static void printRoot2leaf(Node root, ArrayList<Integer> path) {
+        // Base case: if the current node is null, return to the previous call
+        if (root == null) return;
+
+        // Add the current node's value to the path list
+        path.add(root.val);
+
+        // If the current node is a leaf (no left or right child), print the path
+        if (root.left == null && root.right == null) {
+            printpath(path);
+        }
+
+        // Recursively call for the left child
+        printRoot2leaf(root.left, path);
+
+        // Recursively call for the right child
+        printRoot2leaf(root.right, path);
+
+        // Backtracking: remove the last added node from the path to explore new paths
+        path.remove(path.size() - 1);
+    }
+
+    public static void printpath(ArrayList<Integer> path) {
+        // Print each node in the path followed by an arrow (->), except for the last node
+        for (int i = 0; i < path.size(); i++) {
+            System.out.print(path.get(i));
+            if (i < path.size() - 1) {
+                System.out.print(" -> ");
+            }
+        }
+        // Print a new line after each path to separate paths
+        System.out.println();
+    }
 
 
 
