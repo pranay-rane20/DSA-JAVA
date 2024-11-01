@@ -118,7 +118,7 @@ public class BST {
         printRoot2leaf(root.right, path);
 
         // Backtracking: remove the last added node from the path to explore new paths
-        path.remove(path.size() - 1);
+        path.remove( path.size() - 1);
     }
 
     public static void printpath(ArrayList<Integer> path) {
