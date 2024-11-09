@@ -28,9 +28,18 @@ public class ClassRoom {
         pq.add(new Student("D",8));
 
         while(!pq.isEmpty()) {
-            System.out.println(pq.peek().name + " -> " + pq.peek().rank );
+            System.out.println( STR."\{pq.peek().name} -> \{pq.peek().rank}");
             pq.remove();
         }
 
     }
 }
+
+
+//(node) idx = 1;
+//leftchild = 2i+1;
+//rightchild = 2i+2;
+
+
+//child = x;
+//parent = (x-1)/2;
