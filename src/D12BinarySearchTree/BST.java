@@ -24,6 +24,7 @@ public class BST {
         }
         return root;
     }
+
     public static void inorder(Node root){
         if(root==null)return;
             inorder(root.left);
@@ -165,7 +166,7 @@ public class BST {
         Node rightmirror = createMirror(root.right);
 
         root.left = rightmirror;
-        root.right = leftmirror;
+        root.right = leftmirror ;
 
         return root;
     }
