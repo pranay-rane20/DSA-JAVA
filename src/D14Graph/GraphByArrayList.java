@@ -29,6 +29,7 @@ public class GraphByArrayList {
         int v = sc.nextInt();
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
         for(int i=0; i<v; i++){
             adj.add(new ArrayList<Integer>());
         }
