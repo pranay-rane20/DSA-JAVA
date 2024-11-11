@@ -27,13 +27,12 @@ public class GraphByArrayList {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int v = sc.nextInt();
+        //hello
 
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
-
         for(int i=0; i<v; i++){
             adj.add(new ArrayList<Integer>());
         }
-
         create(adj, 1,2,false);
         create(adj, 0,2,false);
         create(adj, 1,0,false);
