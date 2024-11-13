@@ -75,8 +75,5 @@ public class BipartitieGraph {
         create(adj, 0, 1, false);
         create(adj, 2, 4, false);
 
-        // Perform BFS and print the result
-        ArrayList<Integer> ans = BFS(v, adj);
-        System.out.println("BFS Traversal starting from node 0: " + ans);
     }
 }
