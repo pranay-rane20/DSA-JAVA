@@ -20,7 +20,6 @@ public class GraphBFS {
     public static ArrayList<Integer> BFS(int v, ArrayList<ArrayList<Integer>> adj) {
         boolean[] visited = new boolean[v];
         ArrayList<Integer> ans = new ArrayList<>();  // List to store BFS traversal order
-
         for (int i = 0; i < v; i++) {
             if (!visited[i]) {
                 BFSUtil(adj, ans, visited, i);
@@ -28,17 +27,14 @@ public class GraphBFS {
         }
         return ans;
     }
-
     // Method to perform BFS traversal from a given node
     public static void BFSUtil(ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ans, boolean[] visited, int start) {
         Queue<Integer> q = new LinkedList<>();
         q.add(start);
         visited[start] = true;
-
         while (!q.isEmpty()) {
             int curr = q.poll();
             ans.add(curr);
-
             // Visit all unvisited neighbors of the current node
             for (int neighbor : adj.get(curr)) {
                 if (!visited[neighbor]) {
