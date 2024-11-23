@@ -1,3 +1,12 @@
+
+Dynamic Programming (DP) is a method for solving complex problems
+ by breaking them down into simpler subproblems. It is applicable
+  when the problem can be divided into overlapping subproblems
+   that can be solved independently. DP is used to optimize
+    recursive algorithms by storing the results of subproblems
+     to avoid redundant computations, thus improving efficiency.
+      There are two main approaches to DP: Memoization (Top-Down)
+       and Tabulation (Bottom-Up).
 Ways of DP
 
 1. Memoization (Top Down)
