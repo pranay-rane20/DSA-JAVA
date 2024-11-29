@@ -45,6 +45,7 @@ public class LongestCommonSubsequence {
                 }
             }
         }
+        return dp[n][m];
     }
 
     public static void main(String[] args) {
