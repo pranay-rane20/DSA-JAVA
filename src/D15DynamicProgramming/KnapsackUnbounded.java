@@ -59,14 +59,21 @@ public class KnapsackUnbounded {
             }
         }
 
+        for (int i = 0; i <= n; i++) {
+            for(int j=0;j<=W;j++){
+                System.out.print(dp[i][j] + " ");
+            }
+            System.out.println();
+        }
+
         return dp[n][W];
     }
 
     // Main function
     public static void main(String[] args) {
-        int W = 8; // Knapsack capacity
-        int[] wt = {1, 3, 4, 5}; // Weights of items
-        int[] val = {10, 40, 50, 70}; // Values of items
+        int W = 7; // Knapsack capacity
+        int[] wt = {2,5,1,3,4}; // Weights of items
+        int[] val = {15,14,10,45,30}; // Values of items
 
         // Solve using Memoization
         int maxValueMemoization = unboundedKnapsackMemoization(val, wt, W);
